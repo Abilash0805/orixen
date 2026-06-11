@@ -11,7 +11,6 @@ A world-class, futuristic 3D website experience for **Orixen Digital** — built
 - **Custom cursor** — glowing dot + spring-trailed magnetic ring (desktop only)
 - **Lenis smooth scrolling** synced with GSAP ScrollTrigger
 - **GSAP pinned horizontal showcase** — scroll-driven cinematic panels
-- **Interactive live demos** — digital menu card, portfolio grid and website preview, all touchable
 - **Magnetic buttons, 3D tilt cards, pointer-tracked glows, infinite testimonial marquee, animated FAQ accordion**
 - **Aurora backgrounds, noise texture, animated grid floors, holographic borders**
 
@@ -39,11 +38,10 @@ npm start        # serve production build
 2. About — animated stat counters + 4-phase process timeline
 3. Services — six 3D-tilt capability cards
 4. Showcase — GSAP pinned horizontal "Orixen Engine" panels
-5. Live Demo — interactive menu / portfolio / website playground
-6. Testimonials — infinite glass-card marquee
-7. FAQ — animated accordion
-8. Contact — WhatsApp (+91 97890 10266) & email cards
-9. Footer — ghost wordmark + service map
+5. Testimonials — infinite glass-card marquee
+6. FAQ — animated accordion
+7. Contact — WhatsApp (+91 97890 10266) & email cards
+8. Footer — ghost wordmark + service map
 
 ## ⚡ Performance & Accessibility
 
