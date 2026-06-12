@@ -103,7 +103,12 @@ export default function Services() {
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
           {SERVICES.map((service, i) => (
-            <Reveal key={service.tag} delay={(i % 3) * 0.12} className="h-full">
+            <Reveal
+              key={service.tag}
+              variant="flip"
+              delay={(i % 3) * 0.12}
+              className="h-full"
+            >
               <TiltCard service={service} />
             </Reveal>
           ))}

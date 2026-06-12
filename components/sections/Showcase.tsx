@@ -54,7 +54,7 @@ export default function Showcase() {
 
       const scrollWidth = track.scrollWidth - window.innerWidth;
 
-      gsap.to(track, {
+      const scrub = gsap.to(track, {
         x: -scrollWidth,
         ease: "none",
         scrollTrigger: {
@@ -66,6 +66,27 @@ export default function Showcase() {
           anticipatePin: 1,
           invalidateOnRefresh: true,
         },
+      });
+
+      // panels swing in 3D as they cross the viewport during the scrub
+      track.querySelectorAll("article").forEach((panel) => {
+        gsap.fromTo(
+          panel,
+          { rotateY: 18, scale: 0.92, opacity: 0.55 },
+          {
+            rotateY: -6,
+            scale: 1,
+            opacity: 1,
+            ease: "none",
+            scrollTrigger: {
+              trigger: panel,
+              containerAnimation: scrub,
+              start: "left 90%",
+              end: "left 35%",
+              scrub: true,
+            },
+          }
+        );
       });
     });
 
@@ -86,7 +107,7 @@ export default function Showcase() {
       {/* horizontal cinematic track (vertical stack on mobile) */}
       <div
         ref={trackRef}
-        className="flex flex-col md:flex-row gap-6 md:gap-10 px-6 md:px-[10vw] pb-28 md:pb-40 md:w-max"
+        className="flex flex-col md:flex-row gap-6 md:gap-10 px-6 md:px-[10vw] pb-28 md:pb-40 md:w-max [perspective:1400px]"
       >
         {SLIDES.map((slide) => (
           <article

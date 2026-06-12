@@ -75,7 +75,7 @@ export default function About() {
         {/* process timeline */}
         <div className="mt-24 grid md:grid-cols-4 gap-5">
           {PROCESS.map((phase, i) => (
-            <Reveal key={phase.step} delay={i * 0.12}>
+            <Reveal key={phase.step} variant="flip" delay={i * 0.12}>
               <motion.div
                 whileHover={{ y: -8 }}
                 transition={{ type: "spring", stiffness: 260, damping: 20 }}

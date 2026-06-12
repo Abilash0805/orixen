@@ -97,6 +97,12 @@ function ParticleField({ count = 1600 }: { count?: number }) {
 /* Central holographic core                                            */
 /* ------------------------------------------------------------------ */
 
+/** 0 → 1 over the first viewport height of scrolling */
+function getScrollProgress() {
+  if (typeof window === "undefined") return 0;
+  return Math.min(window.scrollY / window.innerHeight, 1);
+}
+
 function HoloCore() {
   const group = useRef<THREE.Group>(null);
   const inner = useRef<THREE.Mesh>(null);
@@ -104,8 +110,15 @@ function HoloCore() {
 
   useFrame((state, delta) => {
     const t = state.clock.elapsedTime;
+    const scroll = getScrollProgress();
     if (group.current) {
-      group.current.rotation.y += delta * 0.18;
+      // core spins up and recedes as the user scrolls away
+      group.current.rotation.y += delta * (0.18 + scroll * 1.4);
+      group.current.position.y = THREE.MathUtils.lerp(
+        group.current.position.y,
+        scroll * 2.2,
+        0.06
+      );
       // ease toward pointer for mouse-reactive tilt
       group.current.rotation.x = THREE.MathUtils.lerp(
         group.current.rotation.x,
@@ -191,7 +204,8 @@ function Rig() {
   const { camera } = useThree();
 
   useFrame((state) => {
-    // parallax dolly toward pointer
+    const scroll = getScrollProgress();
+    // parallax dolly toward pointer + scroll-driven pull-back
     camera.position.x = THREE.MathUtils.lerp(
       camera.position.x,
       state.pointer.x * 1.4,
@@ -199,10 +213,15 @@ function Rig() {
     );
     camera.position.y = THREE.MathUtils.lerp(
       camera.position.y,
-      state.pointer.y * 0.9,
+      state.pointer.y * 0.9 - scroll * 1.6,
       0.035
     );
-    camera.lookAt(0, 0, 0);
+    camera.position.z = THREE.MathUtils.lerp(
+      camera.position.z,
+      8 + scroll * 6,
+      0.05
+    );
+    camera.lookAt(0, scroll * 1.2, 0);
 
     if (light.current) {
       light.current.position.x = state.pointer.x * 8;

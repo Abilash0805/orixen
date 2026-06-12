@@ -1,7 +1,8 @@
 "use client";
 
+import { useRef } from "react";
 import dynamic from "next/dynamic";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import MagneticButton from "@/components/ui/MagneticButton";
 import { CONTACT, MARQUEE_ITEMS } from "@/lib/data";
 
@@ -26,9 +27,21 @@ const item = {
 };
 
 export default function Hero() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  });
+  // cinematic parallax: text drifts up, fades and tilts away while the 3D scene pulls back
+  const contentY = useTransform(scrollYProgress, [0, 1], [0, -180]);
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
+  const contentScale = useTransform(scrollYProgress, [0, 1], [1, 0.9]);
+  const contentRotateX = useTransform(scrollYProgress, [0, 1], [0, 14]);
+
   return (
     <section
       id="hero"
+      ref={sectionRef}
       className="relative min-h-screen flex flex-col justify-center overflow-hidden"
     >
       {/* 3D universe */}
@@ -46,10 +59,20 @@ export default function Hero() {
 
       {/* content */}
       <motion.div
+        style={{
+          y: contentY,
+          opacity: contentOpacity,
+          scale: contentScale,
+          rotateX: contentRotateX,
+          transformPerspective: 1000,
+        }}
+        className="relative z-10 w-full"
+      >
+      <motion.div
         variants={container}
         initial="hidden"
         animate="show"
-        className="relative z-10 mx-auto max-w-6xl px-6 pt-28 pb-20 text-center pointer-events-none [&_a]:pointer-events-auto [&_button]:pointer-events-auto"
+        className="mx-auto max-w-6xl px-6 pt-28 pb-20 text-center pointer-events-none [&_a]:pointer-events-auto [&_button]:pointer-events-auto"
       >
         <motion.div variants={item}>
           <span className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full glass holo-border text-xs font-mono tracking-[0.3em] text-electric-300 uppercase">
@@ -108,6 +131,7 @@ export default function Hero() {
             />
           </div>
         </motion.div>
+      </motion.div>
       </motion.div>
 
       {/* marquee strip */}
