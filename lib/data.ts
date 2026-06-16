@@ -54,12 +54,20 @@ export const SERVICES = [
       "Your on-call tech command center — setup, troubleshooting and digital solutions on demand.",
     points: ["Rapid troubleshooting", "Setup & deployment", "Ongoing support"],
   },
+  {
+    icon: "🎓",
+    title: "School Projects",
+    tag: "EDU-07",
+    description:
+      "Done-for-you academic projects — working models, presentations and reports that earn top marks without the last-minute panic.",
+    points: ["Working models & demos", "Presentations & reports", "Subject-spanning expertise"],
+  },
 ];
 
 export const STATS = [
   { value: 50, suffix: "+", label: "Projects Delivered" },
   { value: 98, suffix: "%", label: "Client Satisfaction" },
-  { value: 6, suffix: "", label: "Service Verticals" },
+  { value: 7, suffix: "", label: "Service Verticals" },
   { value: 24, suffix: "/7", label: "Support Window" },
 ];
 
@@ -104,7 +112,7 @@ export const TESTIMONIALS = [
 export const FAQS = [
   {
     q: "What services does Orixen Digital provide?",
-    a: "We create websites, study materials, digital menu cards, portfolios and digital products, video edits, and provide tech support. If it lives on a screen, we can probably build it, design it or fix it.",
+    a: "We create websites, study materials, digital menu cards, portfolios and digital products, video edits, school projects, and provide tech support. If it lives on a screen, we can probably build it, design it or fix it.",
   },
   {
     q: "How long does a typical website take?",
@@ -164,4 +172,5 @@ export const MARQUEE_ITEMS = [
   "TECH SUPPORT",
   "DIGITAL PRODUCTS",
   "3D EXPERIENCES",
+  "SCHOOL PROJECTS",
 ];

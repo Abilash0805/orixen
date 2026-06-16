@@ -98,7 +98,7 @@ export default function Services() {
           kicker="Capabilities"
           title="Everything digital,"
           highlight="done beautifully."
-          description="Six verticals, one obsession: shipping work that makes people stop and stare."
+          description="Seven verticals, one obsession: shipping work that makes people stop and stare."
         />
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
