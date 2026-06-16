@@ -19,14 +19,14 @@ export const metadata: Metadata = {
   description:
     "Futuristic digital studio crafting blazing-fast websites, QR digital menu cards, study materials, school projects, portfolios, cinematic video edits and on-call tech support. Designing solutions. Creating impact.",
   alternates: {
-    canonical: "https://orixendigital.netlify.app",
+    canonical: "https://orixendigital.vercel.app",
   },
   openGraph: {
     title:
       "Orixen Digital — Web Design, Digital Menus, Study Materials & Tech Support",
     description:
       "Futuristic digital studio crafting blazing-fast websites, QR digital menu cards, study materials, school projects, portfolios, cinematic video edits and on-call tech support.",
-    url: "https://orixendigital.netlify.app",
+    url: "https://orixendigital.vercel.app",
     type: "website",
   },
 };

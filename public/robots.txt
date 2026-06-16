@@ -13,7 +13,7 @@ Allow: /$
 Crawl-delay: 1
 
 # Sitemap location
-Sitemap: https://orixendigital.netlify.app/sitemap.xml
+Sitemap: https://orixendigital.vercel.app/sitemap.xml
 
 # Block resource paths that don't need indexing
 User-agent: *

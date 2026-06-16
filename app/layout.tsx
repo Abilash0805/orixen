@@ -20,7 +20,7 @@ const mono = JetBrains_Mono({
   display: "swap",
 });
 
-const SITE_URL = "https://orixendigital.netlify.app";
+const SITE_URL = "https://orixendigital.vercel.app";
 const SITE_NAME = "Orixen Digital";
 const SITE_TITLE = "Orixen Digital — Designing Solutions. Creating Impact.";
 const SITE_DESCRIPTION =
