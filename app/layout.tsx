@@ -25,7 +25,7 @@ const SITE_NAME = "Orixen Digital";
 const SITE_TITLE = "Orixen Digital — Designing Solutions. Creating Impact.";
 const SITE_DESCRIPTION =
   "Orixen Digital crafts world-class websites, study materials, digital menu cards, portfolios, video edits, school projects and tech support. Futuristic digital experiences engineered to impress.";
-const SITE_IMAGE = `${SITE_URL}/logo.png`;
+const SITE_IMAGE = `${SITE_URL}/og-image.png`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -80,10 +80,11 @@ export const metadata: Metadata = {
     siteName: SITE_NAME,
     images: [
       {
-        url: "/logo.png",
-        width: 512,
-        height: 512,
-        alt: "Orixen Digital logo",
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Orixen Digital — Designing Solutions. Creating Impact.",
+        type: "image/png",
       },
     ],
   },
@@ -91,7 +92,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
-    images: ["/logo.png"],
+    images: ["/og-image.png"],
     creator: "@orixendigital",
   },
   robots: {
@@ -112,7 +113,9 @@ export const metadata: Metadata = {
     icon: [
       { url: "/icon.png", sizes: "any", type: "image/png" },
     ],
-    apple: [{ url: "/icon.png", sizes: "180x180", type: "image/png" }],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
     shortcut: ["/icon.png"],
   },
   verification: {
