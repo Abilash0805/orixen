@@ -1,0 +1,22 @@
+# https://www.robotstxt.org/robotstxt.html
+# Allow all crawlers full access
+User-agent: *
+Allow: /
+
+# Block nothing - all pages are public
+Disallow:
+
+# Allow explicit indexing of the homepage
+Allow: /$
+
+# Crawl delay to be polite (seconds)
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://orixendigital.netlify.app/sitemap.xml
+
+# Block resource paths that don't need indexing
+User-agent: *
+Disallow: /_next/
+Disallow: /api/
+Disallow: /static/

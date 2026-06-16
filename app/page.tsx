@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import SmoothScroll from "@/components/SmoothScroll";
 import Preloader from "@/components/Preloader";
 import CustomCursor from "@/components/CustomCursor";
@@ -12,6 +13,24 @@ import FAQ from "@/components/sections/FAQ";
 import Contact from "@/components/sections/Contact";
 import Footer from "@/components/sections/Footer";
 
+export const metadata: Metadata = {
+  title:
+    "Orixen Digital — Web Design, Digital Menus, Study Materials & Tech Support",
+  description:
+    "Futuristic digital studio crafting blazing-fast websites, QR digital menu cards, study materials, school projects, portfolios, cinematic video edits and on-call tech support. Designing solutions. Creating impact.",
+  alternates: {
+    canonical: "https://orixendigital.netlify.app",
+  },
+  openGraph: {
+    title:
+      "Orixen Digital — Web Design, Digital Menus, Study Materials & Tech Support",
+    description:
+      "Futuristic digital studio crafting blazing-fast websites, QR digital menu cards, study materials, school projects, portfolios, cinematic video edits and on-call tech support.",
+    url: "https://orixendigital.netlify.app",
+    type: "website",
+  },
+};
+
 export default function Home() {
   return (
     <SmoothScroll>
@@ -20,13 +39,15 @@ export default function Home() {
       <ScrollProgress />
       <Navbar />
       <main>
-        <Hero />
-        <About />
-        <Services />
-        <Showcase />
-        <Testimonials />
-        <FAQ />
-        <Contact />
+        <article>
+          <Hero />
+          <About />
+          <Services />
+          <Showcase />
+          <Testimonials />
+          <FAQ />
+          <Contact />
+        </article>
       </main>
       <Footer />
     </SmoothScroll>
