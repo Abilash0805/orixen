@@ -151,6 +151,21 @@ body {
   }
 }
 
+/* ---- lighter compositing cost on small/touch screens ---- */
+@media (max-width: 768px) {
+  .glass {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+  .glass-strong {
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+  .aurora-blob {
+    filter: blur(60px);
+  }
+}
+
 /* ---- reduced motion ---- */
 @media (prefers-reduced-motion: reduce) {
   *,
