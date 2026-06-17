@@ -88,7 +88,7 @@ function TiltCard({
 
 export default function Services() {
   return (
-    <section id="services" className="relative py-28 md:py-40">
+    <section id="services" className="relative py-28 md:py-40 overflow-hidden">
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
         <div className="aurora-blob animate-aurora absolute top-0 right-0 w-[36rem] h-[36rem] rounded-full bg-electric-500/10 [animation-delay:-5s]" />
       </div>
