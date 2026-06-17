@@ -121,7 +121,7 @@ body {
 .noise::after {
   content: "";
   position: fixed;
-  inset: -50%;
+  inset: 0;
   z-index: 80;
   pointer-events: none;
   opacity: 0.035;
@@ -148,6 +148,21 @@ body {
   .cursor-none-desktop,
   .cursor-none-desktop * {
     cursor: none !important;
+  }
+}
+
+/* ---- lighter compositing cost on small/touch screens ---- */
+@media (max-width: 768px) {
+  .glass {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+  .glass-strong {
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+  .aurora-blob {
+    filter: blur(60px);
   }
 }
 

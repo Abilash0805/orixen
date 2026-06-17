@@ -1,9 +1,21 @@
 "use client";
 
-import { useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Float, Environment, AdaptiveDpr } from "@react-three/drei";
 import * as THREE from "three";
+
+function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 768px), (pointer: coarse)");
+    setIsMobile(mq.matches);
+    const onChange = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
+  return isMobile;
+}
 
 /* ------------------------------------------------------------------ */
 /* Shader particle universe                                            */
@@ -245,20 +257,26 @@ function Rig() {
 /* ------------------------------------------------------------------ */
 
 export default function HeroScene() {
+  const isMobile = useIsMobile();
+
   return (
     <Canvas
       camera={{ position: [0, 0, 8], fov: 42 }}
-      dpr={[1, 1.8]}
-      gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
+      dpr={isMobile ? 1 : [1, 1.8]}
+      gl={{
+        antialias: !isMobile,
+        alpha: true,
+        powerPreference: isMobile ? "low-power" : "high-performance",
+      }}
       style={{ background: "transparent" }}
     >
       <AdaptiveDpr pixelated />
-      <ambientLight intensity={0.25} />
+      <ambientLight intensity={isMobile ? 0.45 : 0.25} />
       <directionalLight position={[-6, 4, 2]} intensity={1.2} color="#e8eeff" />
       <Rig />
       <HoloCore />
-      <ParticleField />
-      <Environment preset="city" />
+      <ParticleField count={isMobile ? 500 : 1600} />
+      {!isMobile && <Environment preset="city" />}
       <fog attach="fog" args={["#030308", 12, 30]} />
     </Canvas>
   );

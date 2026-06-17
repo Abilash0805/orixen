@@ -36,7 +36,7 @@ function Counter({ value, suffix }: { value: number; suffix: string }) {
 
 export default function About() {
   return (
-    <section id="about" className="relative py-28 md:py-40">
+    <section id="about" className="relative py-28 md:py-40 overflow-hidden">
       <div
         className="absolute inset-0 pointer-events-none"
         aria-hidden="true"
