@@ -121,7 +121,7 @@ body {
 .noise::after {
   content: "";
   position: fixed;
-  inset: -50%;
+  inset: 0;
   z-index: 80;
   pointer-events: none;
   opacity: 0.035;

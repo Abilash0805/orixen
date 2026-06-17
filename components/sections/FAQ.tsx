@@ -10,7 +10,7 @@ export default function FAQ() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="relative py-28 md:py-40">
+    <section id="faq" className="relative py-28 md:py-40 overflow-hidden">
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
         <div className="aurora-blob animate-aurora absolute top-1/4 -right-32 w-[28rem] h-[28rem] rounded-full bg-electric-500/12" />
       </div>
